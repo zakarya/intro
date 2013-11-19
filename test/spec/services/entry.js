@@ -7,7 +7,7 @@ describe('Service: Entry', function () {
 
   // instantiate service
   var Entry;
-  beforeEach(inject(function (_Entry_) {
+  beforeEach(inject(function(_Entry_) {
     Entry = _Entry_;
   }));
 

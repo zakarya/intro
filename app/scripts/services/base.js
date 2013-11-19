@@ -1,38 +1,16 @@
-angular.module('introApp').factory('ServiceBase', ['$http', '$q', '$log', function ($http, $q, $log) {
-  'use strict';
-  // AngularJS will instantiate a singleton by calling "new" on this function
+'use strict';
 
-  /**
-   * @class  ServiceBase
-   * @param {Object} config The configuration options for this service.
-   * @constructor
-   */
-  function ServiceBase(config) {
-    config = config || {};
-    this.config = angular.extend({
-      idAttribute: 'id'
-    }, config);
-  }
+angular.module('introApp')
+  .factory('base', [function() {
+    // Service logic
+    // ...
 
-  ServiceBase..prototype.GET = function(url, config) {
-    var deferred = $q.defer();
-    var start = new Date().getTime();
-    $http.get(url, config).success(function (data, status, headers, config) {
-      $log.debug('Request: GET ' + url + ' Time taken: ' + (new Date().getTime() - start) + 'ms', arguments);
-      if (data.status && data.data && data.status === 'Success') {
-        deferred.resolve(data.data, status, headers, config);
-      } else if (data.status && data.data && data.status !== 'Success') {
-        deferred.reject(data.data, status, headers, config);
-      } else {
-        deferred.resolve(data, status, headers, config);
+    var meaningOfLife = 42;
+
+    // Public API here
+    return {
+      someMethod: function() {
+        return meaningOfLife;
       }
-    }).error(function (data, status, headers, config) {
-      $log.error(arguments);
-      deferred.reject(data, status, headers, config);
-    });
-    return deferred.promise;
-  };
-
-  // Return the "abstract" "class".
-  return ServiceBase;
-}]);
+    };
+  }]);
