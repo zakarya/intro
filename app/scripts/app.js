@@ -31,4 +31,7 @@ angular.module('introApp', [
       .otherwise({
         redirectTo: '/'
       });
+  }])
+  .run(['$rootScope', '$window', function ($rootScope, $window) {
+    $window.introApiUrl = 'http://intro.vault.com/api';
   }]);
