@@ -9,7 +9,7 @@ angular.module('introApp', [
   .config(['$routeProvider', function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/main.html',
+        templateUrl: 'views/main/index.html',
         controller: 'MainCtrl'
       })
       .when('/admin', {
