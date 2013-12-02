@@ -3,6 +3,9 @@
   $liHeight: 90px;
   width: $sideContainerWidth;
   position: absolute;
+  ul {
+    margin: 0 10px 0 9px;
+  }
   li {
     height: $liHeight;
     border-bottom: 1px solid $borderColor;
@@ -14,6 +17,24 @@
       height: $liHeight;
       width: 100%;
       color: black;
+    }
+    &:first-child {
+      border-top: 1px solid $borderColor;
+    }
+    &.active {
+      height: $liHeight +1;
+      border-top: 0;
+      a {
+        background: #fff;
+        width: $sideContainerWidth + 2;
+        margin-left: -9px;
+        border-top: 2px solid red;
+        border-bottom: 2px solid blue;
+        height: $liHeight +1;
+        .text {
+          bottom: 11px;
+        }
+      }
     }
   }
 }
