@@ -2,27 +2,28 @@ $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
 
 @import 'sass-bootstrap/lib/bootstrap';
 
-.img-placeholder {
-    background: url(/images/placeholder1.jpg) no-repeat;
-    padding: 159px 159px 0 0;
-    height: 0;
-    width: 0;
-    overflow: hidden;
-    float: none;
-    margin: 0 auto;
-}
 
-.browsehappy {
-    margin: 0.2em 0;
-    background: #ccc;
-    color: #000;
-    padding: 0.2em 0;
-}
+
+// .browsehappy {
+//     margin: 0.2em 0;
+//     background: #ccc;
+//     color: #000;
+//     padding: 0.2em 0;
+// }
 
 /* Space out content a bit */
 body {
     padding-top: 20px;
     padding-bottom: 20px;
+}
+
+#app-container {
+    background: $white;
+}
+
+#app-wrapper {
+    background: $greyVeryLight;
+    min-height: 800px;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */

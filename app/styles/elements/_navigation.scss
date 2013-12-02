@@ -1,0 +1,19 @@
+#sidetabs {
+  $borderColor: #dae2e6;
+  $liHeight: 90px;
+  width: $sideContainerWidth;
+  position: absolute;
+  li {
+    height: $liHeight;
+    border-bottom: 1px solid $borderColor;
+    position: relative;
+    a {
+      background: transparent;
+      border: none;
+      display: block;
+      height: $liHeight;
+      width: 100%;
+      color: black;
+    }
+  }
+}
