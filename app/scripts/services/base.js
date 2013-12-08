@@ -1,4 +1,4 @@
-angular.module('introApp').factory('ServiceBase', ['$http', '$q', '$log', function ($http, $q, $log) {
+angular.module('introApp').factory('BaseService', ['$http', '$q', '$log', function ($http, $q, $log) {
   'use strict';
 
   /**
@@ -7,11 +7,11 @@ angular.module('introApp').factory('ServiceBase', ['$http', '$q', '$log', functi
    */
 
   /**
-   * @class ServiceBase
+   * @class BaseService
    * @param {Object} config This configuration options for this service.
    * @constructor
    */
-  function ServiceBase(config) {
+  function BaseService(config) {
     config = config || {};
     this.config = angular.extend({
       idAttribute: 'id'
@@ -25,7 +25,7 @@ angular.module('introApp').factory('ServiceBase', ['$http', '$q', '$log', functi
    * @returns {Promise}
    * @public
    */
-  ServiceBase.prototype.GET = function (url, config) {
+  BaseService.prototype.GET = function (url, config) {
     var deferred = $q.defer();
     var start = new Date().getTime();
     $http.get(url, config).success(function (data, status, headers, config) {
@@ -52,7 +52,7 @@ angular.module('introApp').factory('ServiceBase', ['$http', '$q', '$log', functi
    * @returns {Promise}
    * @public
    */
-  ServiceBase.prototype.POST = function (url, data, config) {
+  BaseService.prototype.POST = function (url, data, config) {
     var deferred = $q.defer();
     var start = new Date().getTime();
     $http.post(url, data, config).success(function (data, status, headers, config) {
@@ -79,7 +79,7 @@ angular.module('introApp').factory('ServiceBase', ['$http', '$q', '$log', functi
    * @returns {Promise}
    * @public
    */
-  ServiceBase.prototype.PUT = function (url, data, config) {
+  BaseService.prototype.PUT = function (url, data, config) {
     var deferred = $q.defer();
     var start = new Date().getTime();
     $http.put(url, data, config).success(function (data, status, headers, config) {
@@ -105,7 +105,7 @@ angular.module('introApp').factory('ServiceBase', ['$http', '$q', '$log', functi
    * @returns {Promise}
    * @public
    */
-  ServiceBase.prototype.DELETE = function (url, config) {
+  BaseService.prototype.DELETE = function (url, config) {
     var deferred = $q.defer();
     var start = new Date().getTime();
     $http['delete'](url, config).success(function (data, status, headers, config) {
@@ -131,7 +131,7 @@ angular.module('introApp').factory('ServiceBase', ['$http', '$q', '$log', functi
    * @param {Object} params Object that will be serialized into query parameters in the url.
    * @returns {Promise}
    */
-  ServiceBase.prototype.find = function (id, params) {
+  BaseService.prototype.find = function (id, params) {
     if (!id) {
       throw new Error('You must provide an id!');
     }
@@ -162,7 +162,7 @@ angular.module('introApp').factory('ServiceBase', ['$http', '$q', '$log', functi
    * @param {Object} params Object that will be serialized into query parameters in the url.
    * @returns {Promise}
    */
-  ServiceBase.prototype.findAll = function (params) {
+  BaseService.prototype.findAll = function (params) {
     return this.GET(this.config.baseUrl, { params: params });
   };
 
@@ -173,7 +173,7 @@ angular.module('introApp').factory('ServiceBase', ['$http', '$q', '$log', functi
    * @param {Object} params Object that will be serialized into query parameters in the url.
    * @returns {Promise}
    */
-  ServiceBase.prototype.create = function (attributes, params) {
+  BaseService.prototype.create = function (attributes, params) {
     var deferred = $q.defer();
     var self = this;
     this.POST(this.config.baseUrl, attributes, { params: params }).then(function (data) {
@@ -196,7 +196,7 @@ angular.module('introApp').factory('ServiceBase', ['$http', '$q', '$log', functi
    * @param {Object} params Object that will be serialized into query parameters in the url.
    * @returns {Promise}
    */
-  ServiceBase.prototype.update = function (id, attributes, params) {
+  BaseService.prototype.update = function (id, attributes, params) {
     if (!id) {
       throw new Error('You must provide an id!');
     }
@@ -219,7 +219,7 @@ angular.module('introApp').factory('ServiceBase', ['$http', '$q', '$log', functi
    * @param {Object} params Object that will be serialized into query parameters in the url.
    * @returns {Promise}
    */
-  ServiceBase.prototype.del = function (id, params) {
+  BaseService.prototype.del = function (id, params) {
     if (!id) {
       throw new Error('You must provide an id!');
     }
@@ -236,5 +236,5 @@ angular.module('introApp').factory('ServiceBase', ['$http', '$q', '$log', functi
   };
 
   // Return the "abstract" "class".
-  return ServiceBase;
+  return BaseService;
 }]);
