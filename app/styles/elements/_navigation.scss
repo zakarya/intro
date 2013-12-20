@@ -1,8 +1,10 @@
 #sidetabs {
   $borderColor: #dae2e6;
-  $liHeight: 90px;
+  $liHeight: 50px;
   width: $sideContainerWidth;
   position: absolute;
+  background: $darkBlueLight;
+  border-radius: 5px;
   ul {
     margin: 0 10px 0 9px;
   }
@@ -16,24 +18,26 @@
       display: block;
       height: $liHeight;
       width: 100%;
-      color: black;
+      color: $white;
     }
     &:first-child {
       border-top: 1px solid $borderColor;
+    }
+    &:hover {
+      background: $darkBlueMed;
+      @include gradient-vertical($darkBlueMed, $darkBlueLight, 0%, 60%);
+    }
+    &:last-child {
+      border-bottom: 0;
     }
     &.active {
       height: $liHeight +1;
       border-top: 0;
       a {
-        background: #fff;
-        width: $sideContainerWidth + 2;
-        margin-left: -9px;
-        border-top: 2px solid red;
-        border-bottom: 2px solid blue;
+        background: $darkBlue;
+        width: $sideContainerWidth;
         height: $liHeight +1;
-        .text {
-          bottom: 11px;
-        }
+        @include gradient-vertical($darkBlue, $darkBlueMed, 0%, 60%);
       }
     }
   }

@@ -1,0 +1,8 @@
+{
+    "require": {
+		"scan/kss-php": "dev-master"
+    },
+	"config": {
+		"vendor-dir": "styleguide/vendor"
+	}
+}
