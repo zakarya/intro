@@ -1,0 +1,9 @@
+<div class="col-md-3">
+<ul id="sidetabs" class="nav nav-tabs nav-stacked">
+  <li ng-class="{'active': activeSidetab === tab.text}"
+      ng-repeat="tab in sidetabs | orderObjectByKey: 'index'"
+      ng-click="setActiveSidetab(tab.text)">
+    <a href="">{{tab.text}}</a>
+  </li>
+</ul>
+</div>

@@ -1,17 +1,17 @@
-<div class="app-container">
-	<header>
-		<!-- <ul class="nav nav-pills pull-right">
-			<li class="active"><a href="">Hello</a></li>
-		</ul> -->
-		<div>
-			<h3>IntroVault</h3>
-		</div>
-	</header>
-	<ul id="sidetabs" class="nav nav-tabs nav-stacked">
-		<!-- <li class="sidebar-{{tab.text.toLowerCase()}}"></li>[ng-repeat="tab in sideTabs"] -->
-		<li class="active"><a href="">Progress</a></li>
-		<li><a href="">Tracker</a></li>
-		<li><a href="">Goals</a></li>
-		<li><a href="">Exercises</a></li>
-	</ul>
+<div class="container">
+  <div class="container">
+    <div class="row">
+      <header>
+        <div class="col-md-3">
+          <h3>IntroVault</h3>
+        </div>
+      </header>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div side-tabs></div>
+      <div ng-show="activeSidetab === 'Tracker'" tracker></div>
+    </div>
+  </div>
 </div>

@@ -1,0 +1,5 @@
+.tracker-container {
+	background: $white;
+	@include border-top-radius($borderRadius);
+	@include border-bottom-radius($borderRadius);
+}

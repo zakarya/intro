@@ -1,12 +1,11 @@
 #sidetabs {
   $borderColor: #dae2e6;
   $liHeight: 50px;
-  width: $sideContainerWidth;
-  position: absolute;
   background: $darkBlueLight;
-  border-radius: 5px;
+  @include border-top-radius($borderRadius);
+  @include border-bottom-radius($borderRadius);
   ul {
-    margin: 0 10px 0 9px;
+    // margin: 0 10px 0 9px;
   }
   li {
     height: $liHeight;
@@ -19,6 +18,9 @@
       height: $liHeight;
       width: 100%;
       color: $white;
+      &:last-child {
+        border-bottom: 0;
+      }
     }
     &:first-child {
       border-top: 1px solid $borderColor;
@@ -35,7 +37,6 @@
       border-top: 0;
       a {
         background: $darkBlue;
-        width: $sideContainerWidth;
         height: $liHeight +1;
         @include gradient-vertical($darkBlue, $darkBlueMed, 0%, 60%);
       }
