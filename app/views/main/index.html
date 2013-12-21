@@ -11,7 +11,9 @@
   <div class="container">
     <div class="row">
       <div side-tabs></div>
+      <div ng-show="activeSidetab === 'Progress'" progress></div>
       <div ng-show="activeSidetab === 'Tracker'" tracker></div>
+      <div ng-show="activeSidetab === 'Goals'" goals></div>
     </div>
   </div>
 </div>
