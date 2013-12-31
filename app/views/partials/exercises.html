@@ -1,3 +1,13 @@
 <div class="exercises-container col-md-8">
 	<h1>Exercises</h1>
+
+	<div class="col-md-12">
+		<div data-ng-repeat="exercise in exercises" class="well">
+			<h4>{{exercise.name}}</h4>
+			<h5>Progression</h5>
+			<p>{{exercise.progression}}</p>
+			<h5>Description</h5>
+			<p>{{exercise.description}}</p>
+		</div>
+	</div>
 </div>

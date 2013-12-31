@@ -1,6 +1,17 @@
 <div class="tracker-container col-md-8">
-	<h1>Hello, This is the Tracker</h1>
-	<ul>
-		<li data-ng-repeat="exercise in exercises">{{exercise}}</li>
-	</ul>
+	<h1>Your Tracker</h1>
+	<form action="post">
+		<div class="form-group">
+			<label for="commentInput">Comment</label>
+			<input type="text" class="form-control" name="commentInput" placeholder="e.g. Cool Workout">
+			<label for="set1">Set 1</label>
+			<select name="exercise" id="" class="form-control">
+				<option data-ng-repeat="exercise in exercises" value="{{exercise.id}}">{{exercise.name}}</option>
+			</select>
+			<label for="reps">Reps</label>
+			<input type="text" name="reps" class="form-control" placeholder="e.g. 20">
+			<label for="goal">Goal</label>
+			<input type="text" name="goal" class="form-control" placeholder="e.g. 20">
+		</div>
+	</form>
 </div>

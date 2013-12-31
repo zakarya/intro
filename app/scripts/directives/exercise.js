@@ -7,8 +7,7 @@ angular.module('introApp')
       controller: ['$scope', '$element', function ($scope) {
 
         function _getExercises() {
-          ExerciseService.findAll().then( function (data) {
-            console.log(data);
+          ExerciseService.findAll().then( function () {
           });
         }
 
