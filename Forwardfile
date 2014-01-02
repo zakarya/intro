@@ -1,0 +1,9 @@
+# Set the port to forward
+#port: 3000
+
+# Set the host/vhost to forward
+host: intro.vault.com
+
+# Set a static subdomain prefix to use
+# (e.g. myapp-yourcompany.fwd.wf)
+subdomain_prefix: intro
