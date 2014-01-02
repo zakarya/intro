@@ -2,4 +2,7 @@
 	background: $white;
 	@include border-top-radius($borderRadius);
 	@include border-bottom-radius($borderRadius);
+	.tracker-submit {
+		margin-top: 10px;
+	}
 }
