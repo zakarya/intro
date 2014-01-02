@@ -1,6 +1,30 @@
 <div class="exercises-container col-md-8">
 	<h1>Exercises</h1>
 
+	<form>
+		<div class="form-group">
+			<label for="nameInput">Exercise Name</label>
+			<input type="text" class="form-control" name="nameInput" placeholder="e.g. Push Ups"
+					data-ng-model="exercise.name">
+			<label for="descriptionInput">Description</label>
+			<input type="text" class="form-control" name="descriptionInput" placeholder="Describe the exercise..."
+					data-ng-model="exercise.description">
+			<label for="levelInput">Level</label>
+			<input type="text" class="form-control" name="levelInput" placeholder="e.g. 1"
+					data-ng-model="exercise.level">
+			<label for="beginner">Beginner Standard</label>
+			<input type="text" class="form-control" name="beginnerInput" placeholder="e.g. 2 sets of 10"
+					data-ng-model="exercise.beginner">
+			<label for="intermediate">Intermediate Standard</label>
+			<input type="text" class="form-control" name="intermediateInput" placeholder="e.g. 3 sets of 20"
+					data-ng-model="exercise.intermediate">
+			<label for="progression">Progression Standard</label>
+			<input type="text" class="form-control" name="progressionInput" placeholder="e.g. 3 sets of 50"
+					data-ng-model="exercise.progression">
+			<button class="btn btn-primary tracker-submit" data-ng-click="createExercise()">Submit</button>
+		</div>
+	</form>
+
 	<div class="col-md-12">
 		<div data-ng-repeat="exercise in exercises" class="well">
 			<h4>{{exercise.name}}</h4>
