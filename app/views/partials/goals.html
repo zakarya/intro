@@ -1,3 +1,31 @@
 <div class="goals-container col-md-8">
 	<h1>Your Goals</h1>
+
+	<div class="goal-content">
+		<div class="goal" data-ng-repeat="goal in goals">
+			<h3>{{goal.exercise.name}}</h3>
+			reps: {{goal.reps}}
+			<br>
+			sets: {{goal.sets}}
+			<br>
+			accomplish by: {{goal.accomplish_at}}
+		</div>
+	</div>
+
+	<h2>Add a Goal</h2>
+	<form>
+		<div class="form-group">
+			<label for="exerciseSelect">Exercise</label>
+			<select name="exercise" id="" class="form-control" data-ng-model="goal.exercise_id">
+				<option data-ng-repeat="exercise in exercises" value="{{exercise.id}}">{{exercise.name}}</option>
+			</select>
+			<label for="setsInput">Sets</label>
+			<input type="text" class="form-control" name="setsInput"
+					data-ng-model="goal.sets">
+			<label for="repsInput">Reps</label>
+			<input type="text" class="form-control" name="repsInput" placeholder="e.g. 1"
+					data-ng-model="goal.reps">
+			<button class="btn btn-primary tracker-submit" data-ng-click="createGoal()">Submit</button>
+		</div>
+	</form>
 </div>
