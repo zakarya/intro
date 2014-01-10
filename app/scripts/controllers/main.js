@@ -1,4 +1,4 @@
-angular.module('introApp').controller('MainCtrl', ['$scope', '$rootScope', function ($scope, $rootScope) {
+angular.module('introApp').controller('MainCtrl', ['$scope', '$rootScope', 'AuthenticationService', function ($scope, $rootScope, AuthenticationService) {
     'use strict';
 
     function _getTabs() {
