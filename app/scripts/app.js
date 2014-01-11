@@ -4,19 +4,51 @@ angular.module('introApp', [
   'ngSanitize',
   'ngRoute'
 ])
-  .config(['$routeProvider', function ($routeProvider) {
+  .config(['$routeProvider', '$httpProvider', function ($routeProvider, $httpProvider) {
     'use strict';
 
-    var resolveAuthentication = ['$cookies', '$location', 'ServiceAuthorization', function ($cookies, $location, ServiceAuthorization) {
-        var timestamp = Math.floor(new Date().getTime() / 1000);
+    var interceptor = ['$cookies', '$location', '$q', '$log', function ($cookies, $location, $q, $log) {
+      return {
+          request: function (config) {
+            if (!config.headers['X-Auth-Token'] && $cookies.token) {
+              config.headers['X-Auth-Token'] = $cookies.token;
+            }
+            return config || $q.when(config);
+          },
+          responseError: function (rejection) {
+            if (rejection.status === 401) {
+              $log.error('Unauthenticated request!', rejection);
+              console.log('what?');
+              delete $cookies.token;
+              var path = $location.path();
+              if (path.indexOf('invite') === -1 && path.indexOf('token') === -1 && path.indexOf('reset') === -1) {
+                $location.path('/login');
+              }
+            } else if (rejection.status === 403) {
+              $log.error('Forbidden!', rejection);
+              $location.path('/').replace();
+            } else if (rejection.status === 404) {
+              $log.error('Not found!', rejection);
+            } else if (rejection.status === 500) {
+              $log.error('Internal Server error!', rejection);
+            }
+            return $q.reject(rejection);
+          }
+        };
+    }];
+
+    $httpProvider.interceptors.push(interceptor);
+
+    var resolveAuthentication = ['$cookies', '$location', 'AuthenticationService', function ($cookies, $location, AuthenticationService) {
+        // var timestamp = Math.floor(new Date().getTime() / 1000);
         if ($cookies.resetPassword) {
           $location.url('/reset').replace();
         } else {
-          if (!$cookies.auth_token || !$cookies.expires) {
+          if (!$cookies.token) {
             $location.url('/login').replace();
-          } else if (parseInt($cookies.expires, 10) < timestamp) {
-            ServiceAuthorization.logout();
-            $location.url('/login?timedOut=true').replace();
+          } else {
+            // console.log('Why am I logging out?');
+            // AuthenticationService.logout();
           }
         }
       }];
@@ -40,8 +72,8 @@ angular.module('introApp', [
           reloadOnSearch: false,
           resolve: {
             authenticate: ['$cookies', '$location', function ($cookies, $location) {
-              var timestamp = Math.floor(new Date().getTime() / 1000);
-              if ($cookies.auth_token && parseInt($cookies.expires, 10) > timestamp) {
+              // var timestamp = Math.floor(new Date().getTime() / 1000);
+              if ($cookies.token) {
                 $location.url('/').replace();
               }
             }]

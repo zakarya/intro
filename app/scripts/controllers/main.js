@@ -1,4 +1,4 @@
-angular.module('introApp').controller('MainCtrl', ['$scope', '$rootScope', 'AuthenticationService', function ($scope, $rootScope, AuthenticationService) {
+angular.module('introApp').controller('MainCtrl', ['$scope', '$rootScope', '$window', '$location', 'AuthenticationService', function ($scope, $rootScope, $window, $location, AuthenticationService) {
     'use strict';
 
     function _getTabs() {
@@ -22,12 +22,18 @@ angular.module('introApp').controller('MainCtrl', ['$scope', '$rootScope', 'Auth
       };
     }
 
+    function _logout() {
+      AuthenticationService.logout();
+      $window.location = $location.protocol() + '://' + $location.host() + ':' + $location.port();
+    }
+
     function _initialize() {
       //Setup Scope variables
       $scope.sidetabs = {};
       $scope.getTabs = _getTabs;
       $rootScope.activeSidetab = 'Progress';
       $scope.getTabs();
+      $scope.logout = _logout;
     }
 
     _initialize();
