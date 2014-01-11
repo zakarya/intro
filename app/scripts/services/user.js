@@ -3,8 +3,7 @@ angular.module('introApp')
     'use strict';
     var baseUrl = introApiUrl + '/user';
 
-    var cache = $cacheFactory('UserServiceCache', {
-    });
+    var cache = $cacheFactory('UserServiceCache');
 
     function UserService() {
       this.cache = cache;
@@ -17,7 +16,7 @@ angular.module('introApp')
           this.GET(baseUrl).then(function (data) {
             if (data && data.email) {
               cache.put('loggedInUser', data);
-              $rootScope.user = data.user;
+              $rootScope.user = data;
             } else {
               $log.error('Could not retrieve logged-in user!');
               deferred.reject('Could not retrieve logged-in user!');
@@ -25,6 +24,7 @@ angular.module('introApp')
             deferred.resolve(data);
           }, deferred.reject);
         }
+        return deferred.promise;
       };
     }
 
