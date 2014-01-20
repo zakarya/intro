@@ -39,7 +39,7 @@ angular.module('introApp', [
 
     $httpProvider.interceptors.push(interceptor);
 
-    var resolveAuthentication = ['$cookies', '$location', 'AuthenticationService', function ($cookies, $location, AuthenticationService) {
+    var resolveAuthentication = ['$cookies', '$location', function ($cookies, $location) {
         // var timestamp = Math.floor(new Date().getTime() / 1000);
         if ($cookies.resetPassword) {
           $location.url('/reset').replace();

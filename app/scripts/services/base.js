@@ -27,7 +27,7 @@ angular.module('introApp').factory('BaseService', ['$http', '$q', '$log', functi
    */
   BaseService.prototype.GET = function (url, config) {
     var deferred = $q.defer();
-    var start = new Date().getTime();
+    // var start = new Date().getTime();
     $http.get(url, config).success(function (data, status, headers, config) {
       //$log.debug('Request: GET ' + url + ' Time taken: ' + (new Date().getTime() - start) + 'ms', arguments);
       if (data.status && data.data && data.status === 'Success') {
@@ -54,7 +54,7 @@ angular.module('introApp').factory('BaseService', ['$http', '$q', '$log', functi
    */
   BaseService.prototype.POST = function (url, data, config) {
     var deferred = $q.defer();
-    var start = new Date().getTime();
+    // var start = new Date().getTime();
     $http.post(url, data, config).success(function (data, status, headers, config) {
       //$log.debug('Request: POST ' + url + ' Time taken: ' + (new Date().getTime() - start) + 'ms', arguments);
       if (data.status && data.data && data.status === 'Success') {
@@ -81,7 +81,7 @@ angular.module('introApp').factory('BaseService', ['$http', '$q', '$log', functi
    */
   BaseService.prototype.PUT = function (url, data, config) {
     var deferred = $q.defer();
-    var start = new Date().getTime();
+    // var start = new Date().getTime();
     $http.put(url, data, config).success(function (data, status, headers, config) {
       //$log.debug('Request: PUT ' + url + ' Time taken: ' + (new Date().getTime() - start) + 'ms', arguments);
       if (data.status && data.data && data.status === 'Success') {
@@ -107,7 +107,7 @@ angular.module('introApp').factory('BaseService', ['$http', '$q', '$log', functi
    */
   BaseService.prototype.DELETE = function (url, config) {
     var deferred = $q.defer();
-    var start = new Date().getTime();
+    // var start = new Date().getTime();
     $http['delete'](url, config).success(function (data, status, headers, config) {
       //$log.debug('Request: DELETE ' + url + ' Time taken: ' + (new Date().getTime() - start) + 'ms', arguments);
       if (data.status && data.data && data.status === 'Success') {

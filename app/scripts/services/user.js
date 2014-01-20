@@ -1,5 +1,5 @@
 angular.module('introApp')
-  .service('UserService', ['$rootScope', '$q', '$log', '$cacheFactory', 'BaseService', function UserService($rootScope, $q, $log, $cacheFactory, BaseService) {
+  .service('UserService', ['$rootScope', '$q', '$log', '$cacheFactory', 'BaseService', function ($rootScope, $q, $log, $cacheFactory, BaseService) {
     'use strict';
     var baseUrl = introApiUrl + '/user';
 

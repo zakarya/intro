@@ -1,5 +1,5 @@
 angular.module('introApp')
-  .controller('LoginCtrl', ['$scope', '$window', '$location', 'AuthenticationService', 'UserService', function ($scope, $window, $location, AuthenticationService, UserService) {
+  .controller('LoginCtrl', ['$scope', '$window', '$location', 'AuthenticationService', function ($scope, $window, $location, AuthenticationService) {
     'use strict';
 
     function _signIn() {

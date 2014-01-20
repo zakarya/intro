@@ -1,7 +1,6 @@
-'use strict';
-
 angular.module('introApp')
   .directive('goals', ['GoalService', function (GoalService) {
+    'use strict';
     return {
       templateUrl: 'views/partials/goals.html',
       restrict: 'A',

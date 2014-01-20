@@ -1,7 +1,6 @@
-'use strict';
-
 angular.module('introApp')
   .directive('progress', ['$rootScope', 'UserService', function ($rootScope, UserService) {
+    'use strict';
     return {
       templateUrl: 'views/partials/progress.html',
       restrict: 'A',
