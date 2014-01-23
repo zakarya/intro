@@ -1,5 +1,5 @@
 angular.module('introApp')
-  .directive('goals', ['GoalService', function (GoalService) {
+  .directive('goals', ['GoalService', 'UserService', function (GoalService, UserService) {
     'use strict';
     return {
       templateUrl: 'views/partials/goals.html',
@@ -14,9 +14,12 @@ angular.module('introApp')
         }
 
         function _createGoal () {
-          console.log($scope.goal);
-          GoalService.create($scope.goal).then(function (data) {
-            $scope.goals.unshift(data);
+          UserService.getLoggedInUser().then(function (user) {
+            $scope.goal.userId = user.id;
+            console.log($scope.goal);
+            GoalService.create($scope.goal).then(function (data) {
+              $scope.goals.unshift(data);
+            });
           });
         }
 
