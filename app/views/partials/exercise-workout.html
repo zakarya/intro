@@ -1,12 +1,18 @@
 <div class="exercise-workout-form">
 	<form>
 		<div class="form-group">
-			{{workout.exercises}}
 			<div>
-				<a data-ng-click="addSet()"><span class="glyphicon glyphicon-plus-sign"></span></a>
+				<a data-ng-click="addSet()"><span class="glyphicon glyphicon-plus-sign"></span>
+					Add Set
+				</a>
 			</div>
-			<div data-ng-repeat="set in workout.exercises[].set">
-				<div data-workout-set=""></div>
+			<div data-ng-repeat="exercise in workout.exercises">
+				<label for="exerciseSelect">Exercise</label>
+				<select name="exercise" id="" class="form-control" data-ng-model="workout.exercises[workout.exercises.length - 1].id">
+					<option data-ng-repeat="exercise in exercises" value="{{exercise.id}}">{{exercise.name}}</option>
+				</select>
+				{{workout.exercises}}
+				<div data-workout-set></div>
 			</div>
 		</div>
 	</form>
