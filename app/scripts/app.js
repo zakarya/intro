@@ -2,7 +2,9 @@ angular.module('introApp', [
   'ngCookies',
   'ngResource',
   'ngSanitize',
-  'ngRoute'
+  'ngRoute',
+  'jmdobry.angular-cache',
+  'd3'
 ])
   .config(['$routeProvider', '$httpProvider', function ($routeProvider, $httpProvider) {
     'use strict';
