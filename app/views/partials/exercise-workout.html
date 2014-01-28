@@ -1,0 +1,13 @@
+<div class="exercise-workout-form">
+	<form>
+		<div class="form-group">
+			{{workout.exercises}}
+			<div>
+				<a data-ng-click="addSet()"><span class="glyphicon glyphicon-plus-sign"></span></a>
+			</div>
+			<div data-ng-repeat="set in workout.exercises[].set">
+				<div data-workout-set=""></div>
+			</div>
+		</div>
+	</form>
+</div>

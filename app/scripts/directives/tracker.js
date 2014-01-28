@@ -13,6 +13,16 @@ angular.module('introApp')
           });
         }
 
+        function _addExercise() {
+          $scope.workout.exercises.push({
+            id: 1,
+            set: 1,
+            reps: 0,
+            goal: 0
+          });
+          console.log($scope.workout);
+        }
+
         function _createWorkout() {
           WorkoutService.create($scope.workout).then(function (data){
             console.log(data);
@@ -22,8 +32,10 @@ angular.module('introApp')
         function _initialize() {
           //Setup scope variables
           $scope.getExercises = _getExercises;
+          $scope.addExercise = _addExercise;
           $scope.exercises = {};
           $scope.workout = {};
+          $scope.workout.exercises = [];
           $scope.createWorkout = _createWorkout;
           $scope.getExercises();
         }
