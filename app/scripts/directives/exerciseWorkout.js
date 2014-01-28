@@ -7,7 +7,6 @@ angular.module('introApp')
       controller: ['$scope', function ($scope) {
       }],
       link: function () {
-        console.log('hello');
       }
     };
   }]);
