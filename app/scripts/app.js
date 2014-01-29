@@ -4,7 +4,8 @@ angular.module('introApp', [
   'ngSanitize',
   'ngRoute',
   'jmdobry.angular-cache',
-  'd3'
+  'd3',
+  'ui.date'
 ])
   .config(['$routeProvider', '$httpProvider', function ($routeProvider, $httpProvider) {
     'use strict';
@@ -20,7 +21,6 @@ angular.module('introApp', [
           responseError: function (rejection) {
             if (rejection.status === 401) {
               $log.error('Unauthenticated request!', rejection);
-              console.log('what?');
               delete $cookies.token;
               var path = $location.path();
               if (path.indexOf('invite') === -1 && path.indexOf('token') === -1 && path.indexOf('reset') === -1) {
