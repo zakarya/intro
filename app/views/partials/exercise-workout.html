@@ -1,0 +1,19 @@
+<div class="exercise-workout-form">
+	<form>
+		<div class="form-group">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-2">
+						<label for="exerciseSelect">Exercise</label>
+						<select name="exercise" id="" class="form-control" data-ng-model="exercise.id">
+							<option data-ng-repeat="exercise1 in exercises" value="{{exercise1.id}}">{{exercise1.name}}</option>
+						</select>
+					</div>
+					<div class="col-md-2">
+						<div data-exercise-set></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>

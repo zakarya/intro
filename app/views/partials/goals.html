@@ -25,6 +25,10 @@
 			<label for="repsInput">Reps</label>
 			<input type="text" class="form-control" name="repsInput" placeholder="e.g. 1"
 					data-ng-model="goal.reps">
+			<label for="accomplish">Accomplish</label>
+			<input ui-date data-ng-model="goal.accomplish_at" class="form-control">
+			<label for="comment">Comment</label>
+			<input type="text" class="form-control" data-ng-model="goal.comment">
 			<button class="btn btn-primary tracker-submit" data-ng-click="createGoal()">Submit</button>
 		</div>
 	</form>

@@ -13,7 +13,8 @@
     "angular-route": "~1.2.4",
     "angular-cache": "2.2.0",
     "d3": "~3.4.1",
-    "lodash": "~2.4.1"
+    "lodash": "~2.4.1",
+    "angular-ui-date": "latest"
   },
   "devDependencies": {
     "angular-mocks": "~1.2.4",

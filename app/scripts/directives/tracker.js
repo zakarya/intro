@@ -13,17 +13,51 @@ angular.module('introApp')
           });
         }
 
+        function _addExercise() {
+          $scope.workout.exercises.push({
+            id: 1,
+            set: $scope.workout.exercises.length + 1,
+            reps: null,
+            goal: null
+          });
+          console.log($scope.workout);
+        }
+
+        function _toggleWorkout() {
+          if ($scope.addingWorkout) {
+            $scope.addingWorkout = false;
+          } else {
+            $scope.addingWorkout = true;
+          }
+        }
+
         function _createWorkout() {
-          WorkoutService.create($scope.workout).then(function (data){
-            console.log(data);
+          WorkoutService.create($scope.workout).then(function (){
+            $scope.workout.exercises = [{
+              id: 1,
+              set: 1,
+              reps: null,
+              goal: null
+            }];
+            $scope.workout.comment = null;
+            $scope.addingWorkout = false;
           });
         }
 
         function _initialize() {
           //Setup scope variables
+          $scope.addingWorkout = false;
           $scope.getExercises = _getExercises;
+          $scope.toggleWorkout = _toggleWorkout;
+          $scope.addExercise = _addExercise;
           $scope.exercises = {};
           $scope.workout = {};
+          $scope.workout.exercises = [{
+            id: 1,
+            set: 1,
+            reps: null,
+            goal: null
+          }];
           $scope.createWorkout = _createWorkout;
           $scope.getExercises();
         }

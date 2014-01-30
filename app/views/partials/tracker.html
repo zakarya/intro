@@ -1,20 +1,34 @@
 <div class="tracker-container col-md-8">
 	<h1>Your Tracker</h1>
-	<form>
-		<div class="form-group">
-			<label for="commentInput">Comment</label>
-			<input type="text" class="form-control" name="commentInput" placeholder="e.g. Cool Workout"
-					data-ng-model="workout.comment">
-			<label for="set1">Set 1</label>
-			<select name="exercise" id="" class="form-control" data-ng-model="workout.set1.exercise_id">
-				<option data-ng-repeat="exercise in exercises" value="{{exercise.id}}">{{exercise.name}}</option>
-			</select>
-			<label for="reps">Reps</label>
-			<input type="text" name="reps" class="form-control" placeholder="e.g. 20" data-ng-model="workout.set1.reps">
-			<label for="goal">Goal</label>
-			<input type="text" name="goal" class="form-control" placeholder="e.g. 20" data-ng-model="workout.set1.goal">
-			<div class="clear"></div>
-			<button class="btn btn-primary tracker-submit" data-ng-click="createWorkout()">Submit</button>
-		</div>
-	</form>
+	<div class="add-workout-btn" data-ng-if="!addingWorkout">
+		<button class="btn btn-primary" data-ng-click="toggleWorkout()">Add Workout</button>
+	</div>
+	<div class="add-workout-form" data-ng-if="addingWorkout">
+		<form>
+			<div class="form-group">
+				<div>
+					<a data-ng-click="addExercise()">
+						<span class="glyphicon glyphicon-plus-sign"></span>
+						Add Exercise
+					</a>
+				</div>
+				<div data-ng-repeat="exercise in workout.exercises">
+					<div data-exercise-workout></div>
+				</div>
+				<div class="col-md-10">
+					<label for="commentInput">Comment</label>
+					<input
+						type="textarea"
+						class="form-control"
+						name="commentInput"
+						placeholder="e.g. Cool Workout"
+						data-ng-model="workout.comment">
+					<button class="btn btn-primary tracker-submit" data-ng-click="createWorkout()" style="margin-bottom: 10px;">
+						Submit
+					</button>
+					<a data-ng-click="toggleWorkout()">Cancel</a>
+				</div>
+			</div>
+		</form>
+	</div>
 </div>

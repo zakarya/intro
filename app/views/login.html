@@ -1,18 +1,25 @@
-<div class="container">
-	<div class="row">
-		<div class="col-md-12">
-			<form action="">
-				<label for="emailInput">Email</label>
-				<input type="text" class="form-control"
-				data-ng-model="credentials.username">
-				<label for="passwordInput">Password</label>
-				<input type="password" class="form-control"
-				data-ng-model="credentials.password">
-				<button class="btn btn-primary"
-				data-ng-click="signIn()">Sign In</button>
-				<button class="btn btn-primary"
-				data-ng-click="logout()">Logout</button>
-			</form>
+<div class="login-form">
+	<form>
+		<div class="container">
+			<div class="row">
+				<div class=" col-xs-10 col-sm-8 col-md-6">
+					<label for="emailInput">Email</label>
+					<input type="text" class="form-control"
+					data-ng-model="credentials.username">
+					<label for="passwordInput">Password</label>
+					<input type="password" class="form-control"
+					data-ng-model="credentials.password">
+				</div>
+			</div>
 		</div>
-	</div>
+		<div class="login-btn">
+			<div class="container">
+				<div class="col-md-2">
+					<div class="row">
+						<button class="btn btn-primary" data-ng-click="signIn()">Sign In</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
 </div>
