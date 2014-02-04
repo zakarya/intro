@@ -9,7 +9,11 @@
 							<option data-ng-repeat="exercise1 in exercises" value="{{exercise1.id}}">{{exercise1.name}}</option>
 						</select>
 					</div>
-					<div class="col-md-2">
+					<a data-ng-click="addSet()">
+						<span class="glyphicon glyphicon-plus-sign"></span>
+						Add Set
+					</a>
+					<div data-ng-repeat="set in exercise.sets">
 						<div data-exercise-set></div>
 					</div>
 				</div>

@@ -5,7 +5,10 @@ angular.module('introApp')
       templateUrl: 'views/partials/exercise-set.html',
       restrict: 'A',
       controller: ['$scope', function ($scope) {
-        console.log($scope.exercise);
+
+        function _init() {
+        }
+        _init();
       }],
       link: function () {
       }

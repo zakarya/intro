@@ -7,11 +7,9 @@ angular.module('introApp')
       controller: ['$scope', function ($scope) {
 
         function _addSet() {
-          console.log('adding');
-          $scope.exercises.push({
-            set: 0,
-            reps: 0,
-            goal: 0
+          $scope.exercise.sets.push({
+            reps: null,
+            goal: null
           });
         }
 

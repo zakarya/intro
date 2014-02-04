@@ -16,9 +16,12 @@ angular.module('introApp')
         function _addExercise() {
           $scope.workout.exercises.push({
             id: 1,
-            set: $scope.workout.exercises.length + 1,
-            reps: null,
-            goal: null
+            sets: [
+              {
+                reps: null,
+                goal: null
+              }
+            ]
           });
           console.log($scope.workout);
         }
@@ -35,11 +38,13 @@ angular.module('introApp')
           WorkoutService.create($scope.workout).then(function (){
             $scope.workout.exercises = [{
               id: 1,
-              set: 1,
-              reps: null,
-              goal: null
+              sets: [{
+                reps: null,
+                goal: null
+              }]
             }];
             $scope.workout.comment = null;
+            $scope.workout.date = null;
             $scope.addingWorkout = false;
           });
         }
@@ -54,9 +59,12 @@ angular.module('introApp')
           $scope.workout = {};
           $scope.workout.exercises = [{
             id: 1,
-            set: 1,
-            reps: null,
-            goal: null
+            sets: [
+              {
+                reps: null,
+                goal: null
+              }
+            ]
           }];
           $scope.createWorkout = _createWorkout;
           $scope.getExercises();
