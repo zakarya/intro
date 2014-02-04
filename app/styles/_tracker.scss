@@ -1,5 +1,6 @@
 .tracker-container {
 	background: $white;
+	padding: 20px 10px;
 	@include border-top-radius($borderRadius);
 	@include border-bottom-radius($borderRadius);
 	.tracker-submit {
