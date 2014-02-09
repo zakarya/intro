@@ -1,12 +1,10 @@
 <div class="progress-container col-md-8">
 	<div class="col-md-12">
 		<!-- <div data-progress-visual></div> -->
-		<div data-ng-repeat="exercise in user.exercises" class="well">
-			<h4>{{exercise.name}}</h4>
-			<h5>Progression</h5>
-			<p>{{exercise.progression}}</p>
-			<h5>Description</h5>
-			<p>{{exercise.description}}</p>
+		<div class="well" data-ng-repeat="progression in progressions">
+			<h5>{{progression.parent_name}}</h5>
+			<p>level: {{progression.exercise.level}}</p>
+			<p>{{progression.exercise.name}}</p>
 		</div>
 	</div>
 </div>

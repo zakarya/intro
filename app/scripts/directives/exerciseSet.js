@@ -4,7 +4,7 @@ angular.module('introApp')
     return {
       templateUrl: 'views/partials/exercise-set.html',
       restrict: 'A',
-      controller: ['$scope', function ($scope) {
+      controller: [function () {
 
         function _init() {
         }

@@ -1,20 +1,31 @@
 angular.module('introApp')
-  .directive('progress', ['$rootScope', 'UserService', function ($rootScope, UserService) {
+  .directive('progress', [ function () {
     'use strict';
     return {
       templateUrl: 'views/partials/progress.html',
       restrict: 'A',
-      controller: ['$scope', function ($scope) {
-        function _getProgress() {
-          UserService.find($rootScope.user.id).then(function (data) {
-            $scope.user.exercises = data.exercises;
+      controller: ['$scope', 'WorkoutService', 'ProgressService', function ($scope, WorkoutService, ProgressService) {
+
+        function _getWorkouts() {
+          WorkoutService.findAll().then(function (data) {
+            $scope.workouts = data;
+          });
+        }
+
+        function _getProgressions() {
+          ProgressService.findAll().then(function (data) {
+            $scope.progressions = data;
           });
         }
 
         function _initialize() {
-          $scope.getProgress = _getProgress;
+          $scope.getProgressions = _getProgressions;
+          $scope.getWorkouts = _getWorkouts;
           $scope.user.exercises = {};
-          $scope.getProgress();
+          $scope.progressions = [];
+          $scope.getProgressions();
+          $scope.workouts = {};
+          $scope.getWorkouts();
         }
 
         _initialize();
