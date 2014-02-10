@@ -35,7 +35,7 @@ angular.module('introApp')
         }
 
         function _createWorkout() {
-          WorkoutService.create($scope.workout).then(function (){
+          WorkoutService.create($scope.workout).then(function (data){
             $scope.workout.exercises = [{
               id: 1,
               sets: [{
@@ -46,6 +46,8 @@ angular.module('introApp')
             $scope.workout.comment = null;
             $scope.workout.date = null;
             $scope.addingWorkout = false;
+            $scope.workouts.unshift(data);
+            console.log($scope.workouts);
           });
         }
 

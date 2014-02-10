@@ -1,0 +1,12 @@
+<div class="workout-history">
+	<div class="well" data-ng-repeat="workout in workouts">
+		<p>Date: {{workout.date}}</p>
+		<div data-ng-repeat="exercise in workout.exercises">
+			{{exercise.name}}
+			<div data-ng-repeat="set in exercise.sets">
+				<p>Reps: {{set.reps}}</p>
+				<p>Goal: {{set.goal}}</p>
+			</div>
+		</div>
+	</div>
+</div>
