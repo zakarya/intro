@@ -11,13 +11,13 @@ angular.module('introApp')
           });
         }
 
-        function _initialize() {
+        function _init() {
           $scope.exercises = [];
           $scope.getExercises = _getExercises;
           $scope.getExercises();
         }
 
-        _initialize();
+        _init();
       }],
       link: function () {
       }

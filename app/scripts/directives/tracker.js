@@ -51,7 +51,7 @@ angular.module('introApp')
           });
         }
 
-        function _initialize() {
+        function _init() {
           //Setup scope variables
           $scope.addingWorkout = false;
           $scope.getExercises = _getExercises;
@@ -72,7 +72,7 @@ angular.module('introApp')
           $scope.getExercises();
         }
 
-        _initialize();
+        _init();
       }],
       link: function () {
       }

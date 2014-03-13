@@ -1,3 +1,10 @@
 .progress-container {
   @extend .tracker-container;
+  .panel-heading {
+    color: $greyVeryLight;
+    background-color: $darkBlue;
+  }
+  .panel-body {
+    border: 2px solid $darkBlue;
+  }
 }

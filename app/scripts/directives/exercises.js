@@ -13,13 +13,13 @@ angular.module('introApp')
           });
         }
 
-        function _initialize() {
+        function _init() {
           //Setup Scope Variables
           $scope.exercise = {};
           $scope.createExercise = _createExercise;
         }
 
-        _initialize();
+        _init();
       }],
       link: function () {
       }

@@ -27,7 +27,7 @@ angular.module('introApp').controller('MainCtrl', ['$scope', '$rootScope', '$win
       $window.location = $location.protocol() + '://' + $location.host() + ':' + $location.port();
     }
 
-    function _initialize() {
+    function _init() {
       //Setup Scope variables
       $scope.sidetabs = {};
       $scope.getTabs = _getTabs;
@@ -36,5 +36,5 @@ angular.module('introApp').controller('MainCtrl', ['$scope', '$rootScope', '$win
       $scope.logout = _logout;
     }
 
-    _initialize();
+    _init();
   }]);
