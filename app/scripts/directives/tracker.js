@@ -5,10 +5,10 @@ angular.module('introApp')
     return {
       templateUrl: 'views/partials/tracker.html',
       restrict: 'A',
-      controller: ['$scope', 'ExerciseService', 'WorkoutService', function ($scope, ExerciseService, WorkoutService) {
+      controller: ['$scope', 'ExerciseService', 'WorkoutService', 'DS', function ($scope, ExerciseService, WorkoutService, DS) {
 
         function _getExercises() {
-          return ExerciseService.findAll().then(function (data) {
+          return DS.findAll('exercise', {}).then(function (data) {
             $scope.exercises = data;
           });
         }

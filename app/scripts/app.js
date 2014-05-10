@@ -4,11 +4,14 @@ angular.module('introApp', [
   'ngSanitize',
   'ngRoute',
   'jmdobry.angular-cache',
+  'angular-data.DS',
   'd3',
   'ui.date'
 ])
-  .config(['$routeProvider', '$httpProvider', function ($routeProvider, $httpProvider) {
+  .config(['DSProvider', '$routeProvider', '$httpProvider', function (DSProvider, $routeProvider, $httpProvider) {
     'use strict';
+
+    DSProvider.defaults.baseUrl = 'http://intro.vault.com/api/';
 
     var interceptor = ['$cookies', '$location', '$q', '$log', function ($cookies, $location, $q, $log) {
       return {
@@ -42,14 +45,12 @@ angular.module('introApp', [
     $httpProvider.interceptors.push(interceptor);
 
     var resolveAuthentication = ['$cookies', '$location', function ($cookies, $location) {
-        // var timestamp = Math.floor(new Date().getTime() / 1000);
         if ($cookies.resetPassword) {
           $location.url('/reset').replace();
         } else {
           if (!$cookies.token) {
             $location.url('/login').replace();
           } else {
-            // console.log('Why am I logging out?');
             // AuthenticationService.logout();
           }
         }
@@ -85,7 +86,26 @@ angular.module('introApp', [
           redirectTo: '/'
         });
   }])
-  .run(['$rootScope', '$window', function ($rootScope, $window) {
+  .run(['DS', '$rootScope', '$window', function (DS, $rootScope, $window) {
     'use strict';
     $window.introApiUrl = 'http://intro.vault.com/api';
+
+    /***********************************************/
+    /************** DEFINE RESOURCES ***************/
+    /***********************************************/
+    DS.defineResource({
+      name: 'exercise'
+    });
+
+    DS.defineResource({
+      name: 'progress'
+    });
+
+    DS.defineResource({
+      name: 'goal'
+    });
+
+    DS.defineResource({
+      name: 'workout'
+    });
   }]);
